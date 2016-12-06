@@ -5,7 +5,7 @@ include_once('connection.php');
 
 if(isset($_POST['username'])){
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
 
     $sql = "SELECT * FROM User WHERE username='".$username."' AND password='".$password."' LIMIT 1";
     $res = mysql_query($sql) or die(mysql_error());

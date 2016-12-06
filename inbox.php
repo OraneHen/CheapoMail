@@ -17,7 +17,7 @@
     <div id="content">
         <?php
         include_once('connection.php');
-        $sql = "SELECT * FROM Message WHERE user_id ='".$_SESSION['uid']."' ORDER BY subject ASC";
+        $sql = "SELECT * FROM Message WHERE recipient_ids LIKE '%".$_SESSION['username']."%' ORDER BY subject ASC";
         $res = mysql_query($sql) or die(mysql_error());
         $Messages = "";
         if (mysql_num_rows($res)>0){

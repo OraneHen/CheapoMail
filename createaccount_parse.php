@@ -8,7 +8,7 @@ if ($_SESSION['uid']){
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
     
     $sql = "INSERT INTO User (id, firstname, lastname, username, password) VALUES(NULL,'".$firstname."','".$lastname."','".$username."','".$password."')";
     $res = mysql_query($sql) or die(mysql_error());
